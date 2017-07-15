@@ -7,6 +7,10 @@
 
 3.修改部分：YGIAPTool新增OC的封装工具，并且对相关逻辑处理做了优化调整
 
+4.新增了一个控件类，作用是实现图片文字同时显示
+
+
+
 ```
 view的拓展,主要罗列了一下几个
 ```
@@ -89,5 +93,67 @@ public func stringSize(maxSize:CGSize,font:UIFont, color:UIColor?) -> CGSize
 
 
 ps:这里只是项目中常用的一些分类方法，在这里记录下来
+
+
+
+#### 3.新增类的主要属性和方法介绍
+
+###### 3.1 主要属性
+
+```
+//默认从左往右布局
+var layoutDirection:LayoutDirection = .left
+
+```
+这个设置布局方向：主要有三个，从左往右(.left),从右往左(.right)，从中间向两边(.center)
+
+```
+//前半段文字颜色
+var beforeHalfColor:UIColor? = UIColor.black
+//后半段文字颜色
+var behindHalfColor:UIColor? = UIColor.black
+//前半段文字大小
+var beforeHalfFont:UIFont? = UIFont.systemFont(ofSize: 15)
+//后半段文字大小
+var behindHalfFont:UIFont? = UIFont.systemFont(ofSize: 15)
+
+
+//前半段文字的align
+var beforeHalfAlign:NSTextAlignment = .left
+//后半段文字的align
+var behindHalfAlign:NSTextAlignment = .right
+//图片的填充模式
+var imageMode:UIViewContentMode = .scaleAspectFit
+//控件之间的间距，默认是5
+var padding:CGFloat = 5
+//图片高度
+var imageHeight:CGFloat  = 0
+
+```
+
+##### 3.2 核心方法
+
+从左往右布局
+```  private func layoutFromLeft() ```
+
+从右往左布局
+```  private func layoutFromRight() ```
+
+从中间向两边布局
+``` private func layoutFromCenter() ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
