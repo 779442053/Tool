@@ -166,7 +166,6 @@ class YGHorizontalView: UIControl {
     
     private func layoutFromCenter() {
         let maxSize = frame.size
-        
         if imageName != nil {
             let imageW =  imageHeight == 0 ? frame.height - 2 * 10 : imageHeight
             
@@ -174,16 +173,21 @@ class YGHorizontalView: UIControl {
             contentImageView.bounds = CGRect(x: 0, y: 0, width: imageW, height: imageW)
         }
         
+        
         if let beforeText = beforeHalfText {
+            let minX = imageName == nil ? frame.width * 0.5 : contentImageView.frame.minX
+            
             let beforeSize = stringSize(string: beforeText, maxSize: maxSize, font: beforeHalfFont!, color: beforeHalfColor)
-            beforeHalfLabel.center = CGPoint(x: contentImageView.frame.minX - padding - beforeSize.width * 0.5, y: frame.height * 0.5)
+            beforeHalfLabel.center = CGPoint(x: minX - padding - beforeSize.width * 0.5, y: frame.height * 0.5)
             beforeHalfLabel.bounds = CGRect(x: 0, y: 0, width: beforeSize.width, height: beforeSize.height)
         }
 
         
         if let behindText = behindHalfText {
+            let maxX = imageName == nil ? frame.width * 0.5 : contentImageView.frame.maxX
+
             let beforeSize = stringSize(string: behindText, maxSize: maxSize, font: behindHalfFont!, color: behindHalfColor)
-            behindHalfLabel.center = CGPoint(x: contentImageView.frame.maxX + padding + beforeSize.width * 0.5, y: frame.height * 0.5)
+            behindHalfLabel.center = CGPoint(x: maxX + padding + beforeSize.width * 0.5, y: frame.height * 0.5)
             behindHalfLabel.bounds = CGRect(x: 0, y: 0, width: beforeSize.width, height: beforeSize.height)
         }
         
