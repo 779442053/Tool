@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         leftLabel.center = CGPoint(x: view.frame.width * 0.5, y: view.frame.midY)
         leftLabel.bounds = CGRect(x: 0, y: 0, width: 300, height: 40)
         
-        leftLabel.layoutDirection = .center
+        leftLabel.layoutDirection = .left
         leftLabel.backgroundColor = UIColor.orange
         leftLabel.beforeHalfText = "测试: "
         leftLabel.behindHalfText = "后面的  "
